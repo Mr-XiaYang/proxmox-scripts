@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo "v0.0.1";
 EPS_BASE_URL=${EPS_BASE_URL:-}
 EPS_OS_DISTRO=${EPS_OS_DISTRO:-}
 EPS_UTILS_COMMON=${EPS_UTILS_COMMON:-}
@@ -58,7 +59,7 @@ step_start "Node.js"
     i386 | x86) _nodeArch="x86" _opensslArch="linux-elf";;
     *) step_end "Architecture not supported: ${CLR_CYB}$EPS_OS_ARCH${CLR}" 1;;
   esac
-
+  
   if [ "$EPS_OS_DISTRO" = "alpine" ]; then
     if [ "$_nodeArch" != "x64" ]; then
       step_end "Architecture not supported: ${CLR_CYB}$EPS_OS_ARCH${CLR}" 1
@@ -69,9 +70,9 @@ step_start "Node.js"
     os_fetch -O SHASUMS256.txt https://unofficial-builds.nodejs.org/download/release/$NODE_VERSION/SHASUMS256.txt
   else
     _nodePackage="node-$NODE_VERSION-linux-$_nodeArch.tar.xz"
-    echo pwd
-    echo $_nodePackage
-    echo https://nodejs.org/dist/$NODE_VERSION/$_nodePackage
+    echo pwd;
+    echo $_nodePackage;
+    echo https://nodejs.org/dist/$NODE_VERSION/$_nodePackage;
     os_fetch -O $_nodePackage https://nodejs.org/dist/$NODE_VERSION/$_nodePackage
     os_fetch -O SHASUMS256.txt https://nodejs.org/dist/$NODE_VERSION/SHASUMS256.txt
   fi
