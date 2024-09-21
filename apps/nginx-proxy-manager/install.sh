@@ -69,6 +69,9 @@ step_start "Node.js"
     os_fetch -O SHASUMS256.txt https://unofficial-builds.nodejs.org/download/release/$NODE_VERSION/SHASUMS256.txt
   else
     _nodePackage="node-$NODE_VERSION-linux-$_nodeArch.tar.xz"
+    echo pwd
+    echo $_nodePackage
+    echo https://nodejs.org/dist/$NODE_VERSION/$_nodePackage
     os_fetch -O $_nodePackage https://nodejs.org/dist/$NODE_VERSION/$_nodePackage
     os_fetch -O SHASUMS256.txt https://nodejs.org/dist/$NODE_VERSION/SHASUMS256.txt
   fi
