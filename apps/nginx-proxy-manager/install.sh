@@ -46,7 +46,7 @@ if [ -f "$EPS_SERVICE_FILE" ]; then
 fi
 
 step_start "Frontend" "Building" "Built"
-  cd ./frontend
+  cd /app/frontend
   export NODE_ENV=development
   yarn cache clean --silent --force >$__OUTPUT
   yarn install --silent --network-timeout=30000 >$__OUTPUT 
